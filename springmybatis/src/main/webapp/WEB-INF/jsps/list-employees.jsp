@@ -20,8 +20,15 @@
 				<th>Hobbies</th>
 				<th>Country</th>
 				<th>Address</th>
+				<th>Action</th>
 			</tr>
 			<c:forEach items="${listemployees}" var="e" >
+				<c:url var="deleteLink" value="/deleteemployee">
+					<c:param name="employeeId" value="${e.id }"/>
+				</c:url>
+				<c:url var="updateLink" value="/editemployee">
+						<c:param name="employeeId" value="${e.id }"/>
+				</c:url>
 				<tr>
 					<td>${e.fullname}</td>
 					<td>${e.email}</td>
@@ -29,6 +36,7 @@
 					<td>${e.hobbies}</td>
 					<td>${e.country}</td>
 					<td>${e.address}</td>
+					<td><a href="${updateLink }">Update</a> | <a href="${ deleteLink}" onclick="if(!confirm('Are you sure want to delete this Employee permanently')) return false">Delete</a> </td>
 				</tr>
 			</c:forEach>
 		</table>

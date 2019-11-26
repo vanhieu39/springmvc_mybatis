@@ -29,4 +29,21 @@ public class EmployeeController {
 		mav.addObject("employee",new Employee());
 		return mav;
 	}
+	@RequestMapping("/saveProcess")
+	public String saveProcess(@ModelAttribute("employee") Employee employee) {
+		mapper.saveEmployee(employee);
+		return "redirect:/";
+	}
+	@RequestMapping("/deleteemployee")
+	public String deleteemployee(@RequestParam("employeeId") int employeeId) {
+		mapper.deleteEmployee(employeeId);
+		return "redirect:/";
+	}
+	@RequestMapping("/editemployee")
+	public ModelAndView editEmployee(@RequestParam("employeeId") int employeeId) {
+		ModelAndView mav = new ModelAndView("add-employee");
+		Employee employee = mapper.findById(employeeId);
+		mav.addObject("employee",employee);
+		return mav;
+	}
 }

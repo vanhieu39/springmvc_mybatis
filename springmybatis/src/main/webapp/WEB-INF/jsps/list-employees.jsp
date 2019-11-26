@@ -10,6 +10,7 @@
 </head>
 <body>
 	<h1>List Employees</h1>
+	<button onclick="window.location.href='showFormAddEmployee.html'">Add Employee</button>
 	<div>
 		<table border="1">
 			<tr>

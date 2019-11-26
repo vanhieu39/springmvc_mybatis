@@ -23,4 +23,10 @@ public class EmployeeController {
 		mav.addObject("listemployees",mapper.getAllEmployees());
 		return mav;
 	}
+	@RequestMapping("/showFormAddEmployee")
+	public ModelAndView showForm() {
+		ModelAndView mav = new ModelAndView("add-employee");
+		mav.addObject("employee",new Employee());
+		return mav;
+	}
 }
